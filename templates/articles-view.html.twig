@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ article.title }} {% endblock %}
+
+{% block body %}
+    <h1>(ID: {{ article.id }}) {{ article.title }}</h1>
+    <p>Published on: {{ article.createdAt|date('Y-m-d H:i') }}</p>
+    <div class="article-content">
+        {{ article.content|raw }}
+    </div>
+{% endblock %}
