@@ -2,7 +2,7 @@
 
 namespace App\Service;
 
-interface UsefulWorkInterface
+interface UsefulServiceInterface
 {
     public function doUsefulWork(): int;
 }

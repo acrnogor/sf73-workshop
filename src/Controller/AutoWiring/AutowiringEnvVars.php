@@ -2,7 +2,6 @@
 
 namespace App\Controller\AutoWiring;
 
-use App\Service\UsefulServiceOne;
 use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Attribute\Route;
@@ -18,12 +17,15 @@ final readonly class AutowiringEnvVars
         private string $awsRegion
     )
     {
-
+        // Constructor logic here
     }
 
     #[Route(path: '/autowiring/env-vars')]
     public function __invoke(): JsonResponse
     {
+        // do something with env vars, instantiate AWSClient, etc.
+
+        // don't do this, this is just an example so that we can check if it works
         return new JsonResponse([
             'secretKey' => $this->awsSecretKey,
             'accessKey' => $this->awsAccessKey,

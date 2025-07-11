@@ -7,8 +7,6 @@ use App\Service\UsefulServiceOne;
 use App\Service\UsefulServiceThree;
 use App\Service\UsefulServiceTwo;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
 /**
@@ -44,12 +42,14 @@ class AdrOldSkool extends AbstractController
                     fn($article) => [
                         'id' => $article->getId(),
                         'title' => $article->getTitle(),
+                        'author' => $article->getAuthor(),
+                        'category' => $article->getCategory(),
                         'slug' => $article->getSlug(),
                     ],
                     $articles
                 ),
             ];
-            return new JsonResponse($data, Response::HTTP_OK);
+            return $this->json($data);
         }
         return $this->render('old/articles-listing.html.twig', $data);
     }
@@ -68,6 +68,5 @@ class AdrOldSkool extends AbstractController
         $data['article'] = $article;
 
         return $this->render('old/articles-view.html.twig', $data);
-
     }
 }

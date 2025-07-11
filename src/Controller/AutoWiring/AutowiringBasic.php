@@ -9,16 +9,18 @@ use Symfony\Component\Routing\Attribute\Route;
 final readonly class AutowiringBasic
 {
     public function __construct(
-        private readonly UsefulServiceOne $usefulServiceOne
-    )
-    {
-
+        private UsefulServiceOne $usefulServiceOne
+    ) {
+        // constructor logic here
     }
 
     #[Route(path: '/autowiring/basic')]
     public function __invoke(): JsonResponse
     {
-        $this->usefulServiceOne->doUsefulWork();
-        return new JsonResponse(['autowiring' => 'works']);
+        $one = $this->usefulServiceOne->doUsefulWork();
+        return new JsonResponse([
+            'autowiring' => 'works',
+            'result' => $one,
+        ]);
     }
 }

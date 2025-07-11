@@ -16,7 +16,7 @@ final readonly class SearchByAuthorAndCategory
     }
 
     #[Route(
-        path: '/new/articles/search/{category}/{author?}',
+        path: '/new/articles/search/{category?}/{author?}',
         name: 'new_articles_search',
     )]
     public function __invoke(?string $category, ?string $author): Response

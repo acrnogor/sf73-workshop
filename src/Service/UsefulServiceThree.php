@@ -6,7 +6,7 @@ final class UsefulServiceThree
 {
     public function __construct()
     {
-
+        // constructor logic here
     }
 
     public function doUsefulWork(): int
@@ -15,5 +15,11 @@ final class UsefulServiceThree
         usleep(600);
 
         return 3;
+    }
+
+    public function validateUsingAI(): bool
+    {
+        // Simulate validating something with AI
+        return true;
     }
 }

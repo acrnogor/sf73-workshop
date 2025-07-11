@@ -6,7 +6,7 @@ final class UsefulServiceTwo
 {
     public function __construct()
     {
-
+        // constructor logic here
     }
 
     public function doUsefulWork(): int

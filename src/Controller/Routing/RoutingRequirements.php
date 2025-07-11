@@ -17,6 +17,8 @@ final class RoutingRequirements
     )]
     public function __invoke(string $page, string $direction): JsonResponse
     {
+        // do some sql/dql selects by page and direction
+
         return new JsonResponse([
             'page' => $page,
             'direction' => $direction,
