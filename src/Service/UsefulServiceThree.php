@@ -9,9 +9,11 @@ final class UsefulServiceThree
 
     }
 
-    public function doUsefulWork(): void
+    public function doUsefulWork(): int
     {
         // Simulate some useful work
         usleep(600);
+
+        return 3;
     }
 }

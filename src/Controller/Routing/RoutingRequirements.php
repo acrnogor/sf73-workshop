@@ -9,11 +9,17 @@ use Symfony\Component\Routing\Attribute\Route;
 final class RoutingRequirements
 {
     #[Route(
-        path: '/routing/articles/{page?1}',
-        requirements: ['page' => '\d+'],
+        path: '/routing/articles/{page?1}/{direction?asc}',
+        requirements: [
+            'page' => '\d+',
+            'direction' => '(asc|desc|ASC|DESC)',
+        ],
     )]
-    public function __invoke(string $page): JsonResponse
+    public function __invoke(string $page, string $direction): JsonResponse
     {
-        return new JsonResponse(['page' => $page]);
+        return new JsonResponse([
+            'page' => $page,
+            'direction' => $direction,
+        ]);
     }
 }
