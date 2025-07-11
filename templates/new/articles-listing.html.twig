@@ -3,7 +3,8 @@
 {% block title %}Article listing {% endblock %}
 
 {% block body %}
-    <h1>List of articles (old)</h1>
+    <h1>List of articles (new)</h1>
+    <p>Search <a href="{{ path('new_articles_search', {'author': 'bob', 'category': 'health'}) }}">here</a></p>
 
     {# list articles here in a table #}
     <table class="table">
@@ -22,7 +23,7 @@
                 <td>{{ article.id }}</td>
                 <td>{{ article.category }}</td>
                 <td>{{ article.author }}</td>
-                <td><a href="{{ path('old_articles_view', { 'slug': article.slug }) }}">{{ article.title }}</a></td>
+                <td><a href="{{ path('new_articles_view', { 'slug': article.slug }) }}">{{ article.title }}</a></td>
                 <td>{{ article.createdAt|date('Y-m-d H:i:s') }}</td>
             </tr>
         {% else %}
