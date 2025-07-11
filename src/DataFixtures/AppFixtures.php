@@ -15,11 +15,16 @@ class AppFixtures extends Fixture
         $slugify = new Slugify();
         $faker = Factory::create('en_US');
 
+        $categories = ['sport', 'tech', 'health'];
+        $authors = ['kevin', 'bob', 'dave', 'karen'];
+
         for ($i = 0; $i < 50; $i++) {
             $article = new Article();
-            $article->setTitle($faker->sentence(4, true));
-            $article->setContent($faker->paragraph(9, true));
+            $article->setTitle($faker->words(3, true));
+            $article->setContent($faker->paragraph(1, true));
             $article->setCreatedAt($faker->dateTime());
+            $article->setCategory($faker->randomElement($categories));
+            $article->setAuthor($faker->randomElement($authors));
             $article->setSlug($slugify->slugify($article->getTitle()));
 
             $manager->persist($article);

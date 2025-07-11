@@ -12,6 +12,6 @@ final class UsefulServiceTwo
     public function doUsefulWork(): void
     {
         // Simulate some useful work
-        sleep(2);
+        usleep(400);
     }
 }

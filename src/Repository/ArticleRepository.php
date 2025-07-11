@@ -15,4 +15,19 @@ class ArticleRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Article::class);
     }
+
+    public function findBySpecialMethod($slug): ?Article
+    {
+        /** @var Article $article */
+        $article = $this->findOneBy(['slug' => $slug]);
+        if (!$article) {
+            return null;
+        }
+
+        $specialTitle = $article->getTitle() . '(special)';
+        $article->setTitle($specialTitle);
+
+        return $article;
+    }
+
 }

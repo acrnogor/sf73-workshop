@@ -5,7 +5,11 @@
 {% block body %}
     <h1>(ID: {{ article.id }}) {{ article.title }}</h1>
     <p>Published on: {{ article.createdAt|date('Y-m-d H:i') }}</p>
+    <p>Category: {{ article.category }}</p>
+    <p>Written by: {{ article.author }}</p>
+    <p>Content:</p>
     <div class="article-content">
         {{ article.content|raw }}
     </div>
+    <a href="{{ path('old_articles_listing', {'format': 'html'}) }}">back to listing</a>
 {% endblock %}
